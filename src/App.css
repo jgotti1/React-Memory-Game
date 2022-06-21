@@ -1,7 +1,9 @@
 .App {
-  max-width: 860px;
-  margin: 40px auto;
+  margin: 40px;
+  display: grid;
+  justify-content: center;
 }
+
 button {
   background: none;
   border: 2px solid #fff;
