@@ -116,7 +116,7 @@ The `App.js` component manages:
 
 ## 🚢 Deployment
 
-Image and audio paths are absolute (`/img/...`, `/Playtime.mp3`), so the app must be served from the root of a domain, not a subfolder. It is intended to be deployed to Vercel at poppy.margotticode.com.
+Image and audio paths are absolute (`/img/...`, `/Playtime.mp3`), so the app must be served from the root of a domain, not a subfolder. It is deployed on Vercel at poppy.margotticode.com, and every push to `main` redeploys it automatically.
 
 ## 🔮 Future Improvements
 
@@ -149,7 +149,7 @@ The block below is machine-readable project info for a portfolio site (invisible
   "liveUrl": "https://poppy.margotticode.com",
   "repoUrl": "https://github.com/jgotti1/React-Memory-Game",
   "thumbnail": "https://raw.githubusercontent.com/jgotti1/React-Memory-Game/main/docs/preview.jpg",
-  "tech": ["React 18", "JavaScript", "CSS3 (grid and 3D transforms)", "Create React App", "HTML5 Audio"],
+  "tech": ["React 18", "JavaScript", "CSS3 (grid and 3D transforms)", "Create React App", "HTML5 Audio", "Vercel"],
   "features": [
     "12-card shuffled deck built from 6 image pairs",
     "3D CSS card flip animation",
@@ -158,7 +158,7 @@ The block below is machine-readable project info for a portfolio site (invisible
     "Responsive grid: 2, 3 or 4 columns by screen width"
   ],
   "platforms": ["desktop", "tablet", "mobile"],
-  "status": "in-progress",
+  "status": "live",
   "origin": "An early boot camp project (2022), built for my grandkids at their request"
 }
 portfolio-card:end -->
