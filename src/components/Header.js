@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./header.css";
 
 const Header = (props) => {

@@ -130,7 +130,6 @@ Image and audio paths are absolute (`/img/...`, `/Playtime.mp3`), so the app mus
 ## 🐛 Known Issues
 
 - Leftover `console.log` calls in `App.js`
-- Unused `useEffect` import in `Header.js` (shows as a build warning)
 - Card IDs use `Math.random()` instead of deterministic IDs
 
 ## 📝 Development Notes

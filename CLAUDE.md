@@ -27,12 +27,12 @@ Things that are easy to get wrong:
 - Image and audio URLs are absolute (`/img/...`, `/Playtime.mp3`), so the app only works when served from a domain root, not a subpath. Card faces and `cover.jpg` (the card back) are in `public/img/`; not every file there is referenced by `cardImages`.
 - Music is a hidden `<audio id="bkmusic" loop>` in `App`. The same effect that compares cards also calls `bkmusic.play()` on mount and after every choice change. Repeated `play()` calls on a playing element are harmless, and browsers block autoplay until the first click, so music effectively starts on the first card click. There is no mute or pause control.
 - `howler` and `react-h5-audio-player` are in `package.json` but are not imported anywhere in `src/`.
-- Leftover `console.log` calls in `App.js` and an unused `useEffect` import in `Header.js` (build warning).
+- Leftover `console.log` calls in `App.js`.
 - There is no win detection.
 
 ## Deployment
 
-Intended to be deployed to Vercel at https://poppy.margotticode.com (custom domain). No `homepage` field or Vercel config exists in the repo.
+Intended to be deployed to Vercel at https://poppy.margotticode.com (custom domain). No `homepage` field or Vercel config exists in the repo. Vercel builds with `CI=true`, and Create React App then treats any ESLint warning (for example an unused import) as a build error, so check with `CI=true npm run build` before pushing.
 
 ## Portfolio card
 
