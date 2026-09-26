@@ -64,6 +64,9 @@ src/
 
 public/
 ├── index.html             # HTML template
+├── favicon.svg            # Browser tab icon (two matching poppy cards)
+├── favicon.ico            # Tab icon fallback for browsers without SVG icons
+├── apple-touch-icon.png   # iOS home screen icon
 ├── Playtime.mp3           # Background music
 └── img/                   # Card images plus cover.jpg (the card back)
 ```
