@@ -33,6 +33,7 @@ Vite prints the local development URL, normally [http://localhost:5173](http://l
 | Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the Vite development server |
+| `npm start` | Alias for the Vite development server |
 | `npm run build` | Create an optimized production build in `dist/` |
 | `npm run preview` | Preview the production build locally |
 | `npm test` | Run the Vitest test suite once |
@@ -48,7 +49,8 @@ src/
 │   └── SingleCard.jsx       # Accessible card button and card faces
 ├── App.test.jsx             # End-to-end component behavior tests
 ├── game.test.js             # Game helper unit tests
-└── main.jsx                 # React entry point
+├── main.jsx                 # React entry point
+└── setupTests.js            # Browser API mocks and jest-dom matchers
 ```
 
 ## Game rules
@@ -67,6 +69,21 @@ src/
 - Modern CSS Grid and 3D transforms
 - HTML5 Audio and local storage
 - Vercel
+
+## Quality checks
+
+Before opening a pull request or pushing to `main`, run:
+
+```bash
+npm test
+npm run build
+```
+
+The test suite covers initial dealing, comparisons, duplicate-card protection, game reset, music opt-in, the win flow, shuffling, time formatting, and best-score ranking.
+
+## Deployment
+
+The Vercel project is linked to this repository. Pushing `main` creates a new production deployment for [poppy.margotticode.com](https://poppy.margotticode.com). Static images and audio are served from `public/`, and the optimized application bundle is generated in the ignored `dist/` directory.
 
 ## Portfolio card
 
