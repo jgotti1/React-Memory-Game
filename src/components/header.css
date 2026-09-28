@@ -1,1 +1,121 @@
+.game-header {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) auto;
+  gap: 24px 32px;
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
 
+.game-header__intro {
+  text-align: left;
+}
+
+.game-header__eyebrow {
+  margin: 0 0 4px;
+  color: #ffcf71;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+.game-header__intro > p:last-child {
+  margin: 10px 0 0;
+  color: #c9c4e6;
+  font-weight: 600;
+}
+
+.scoreboard {
+  display: flex;
+  grid-row: span 2;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.scoreboard__item {
+  min-width: 86px;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.scoreboard__item + .scoreboard__item {
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.scoreboard__item span {
+  display: block;
+  margin-bottom: 2px;
+  color: #aba5d1;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scoreboard__item strong {
+  font-size: 1.12rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreboard__item--best {
+  min-width: 116px;
+}
+
+.game-header__actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .game-header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .game-header__intro {
+    text-align: center;
+  }
+
+  .scoreboard {
+    grid-row: auto;
+    justify-self: center;
+  }
+
+  .game-header__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .scoreboard {
+    width: 100%;
+  }
+
+  .scoreboard__item {
+    flex: 1;
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  .scoreboard__item--best {
+    min-width: 0;
+  }
+
+  .game-header__actions > button {
+    flex: 1;
+    padding-inline: 12px;
+  }
+}

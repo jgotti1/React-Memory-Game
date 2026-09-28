@@ -1,22 +1,61 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap");
 
-/* base styles */
-body {
-  font-family: Raleway, sans-serif;
-  margin: 0 auto;
-  font-size: 1.5em;
-  text-align: center;
-  height: 100vh;
-  /* background: rgb(20, 4, 163); */
-  background: linear-gradient(90deg, rgb(6, 1, 55), rgb(20, 4, 163), rgb(6, 1, 55));
+:root {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #fff;
-  text-shadow: 4px 4px 3px #ff0000;
+  background: #0b082b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
-body h4 {
-  font-family: Raleway, sans-serif;
-  margin: 23px;
-  font-size: 0.8em;
-  text-align: center;
-  color: #fff;
-  text-shadow: none;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #0b082b;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(89, 58, 224, 0.48), transparent 36rem),
+    radial-gradient(circle at 12% 85%, rgba(226, 67, 142, 0.16), transparent 28rem),
+    linear-gradient(145deg, #080622 0%, #141054 52%, #09072b 100%);
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 4px solid #ffd95a;
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

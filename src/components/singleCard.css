@@ -1,63 +1,96 @@
-* {
-  box-sizing: border-box;
-}
-
-.card {
-  display: block;
-  border: 2px solid #fff;
-  border-radius: 6px;
-  max-width: 278px;
+.memory-card {
   position: relative;
+  display: block;
+  aspect-ratio: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: clamp(10px, 1.6vw, 17px);
+  background: transparent;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  perspective: 900px;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.front,
-.back {
-  max-width: 100%;
+.memory-card:disabled {
+  opacity: 1;
+  cursor: default;
 }
-@media (max-width: 400px) {
-  .card-grid {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    width: fit-content;
-  }
+
+.memory-card:not(:disabled):hover .memory-card__inner {
+  transform: translateY(-4px) rotateY(0deg);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.34);
 }
-@media (min-width: 401px) {
-  .card-grid {
-    display: grid;
-    margin-top: 20px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    width: fit-content;
-  }
-}
-@media (min-width: 821px) {
-  .card-grid {
-    display: grid;
-    margin-top: 40px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    width: fit-content;
-  }
-}
-/* front of card - the picture */
-.card .front {
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
+
+.memory-card__inner {
   position: absolute;
-}
-.flipped .front {
-  transform: rotateY(0deg);
-  transition-delay: 0.2s;
+  inset: 0;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 180ms ease;
 }
 
-/* back of card - cover */
-.card .back {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
+.memory-card--flipped .memory-card__inner,
+.memory-card--flipped:not(:disabled):hover .memory-card__inner {
+  transform: rotateY(180deg);
 }
-.flipped .back {
-  transform: rotateY(90deg);
-  transition-delay: 0s;
+
+.memory-card__face {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  border-radius: inherit;
+  background: #16112f;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.memory-card__front {
+  transform: rotateY(180deg);
+}
+
+.memory-card__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.memory-card__match-mark {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  width: clamp(24px, 3vw, 34px);
+  height: clamp(24px, 3vw, 34px);
+  place-items: center;
+  color: #241542;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: #ffe070;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.3);
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  font-weight: 900;
+  animation: match-mark-in 260ms ease-out;
+}
+
+.memory-card--matched {
+  box-shadow: 0 0 0 3px rgba(255, 224, 112, 0.5), 0 12px 30px rgba(0, 0, 0, 0.26);
+}
+
+@keyframes match-mark-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-16deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-card__face {
+    border-width: 1px;
+  }
 }
